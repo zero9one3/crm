@@ -2,7 +2,7 @@
   <h3>Новый заказ</h3>
 
   <form method="post" action="<?= BASE_URL ?>/orders/create" class="row g-3">
-
+<?= Csrf::inputField(); ?>
     <div class="col-md-4">
       <label class="form-label">Имя клиента</label>
       <input name="client_name" class="form-control">

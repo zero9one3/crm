@@ -2,7 +2,7 @@
   <h3>Добавить мастера</h3>
 
   <form method="post" class="row g-3">
-
+<?= Csrf::inputField(); ?>
     <div class="col-md-4">
       <label class="form-label">Имя</label>
       <input name="name" class="form-control" required>

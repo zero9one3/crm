@@ -34,7 +34,7 @@ function masterName($id) {
 
   <!-- ===== ФОРМА ЗАКАЗА ===== -->
   <form method="post" class="card p-3 mb-4">
-
+<?= Csrf::inputField(); ?>
     <div class="row g-3">
 
       <div class="col-md-4">

@@ -33,6 +33,17 @@ class Router
         $path   = parse_url($uri, PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $token = $_POST['_csrf_token'] ?? null;
+
+            if (!Csrf::validateToken($token)) {
+                http_response_code(403);
+                die('CSRF validation failed');
+            }
+        }
+
+
         // убираем BASE_URL из пути
         if ($this->baseUrl && str_starts_with($path, $this->baseUrl)) {
             $path = substr($path, strlen($this->baseUrl));

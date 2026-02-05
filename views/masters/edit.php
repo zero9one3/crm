@@ -2,7 +2,7 @@
   <h3>Редактирование мастера</h3>
 
   <form method="post" class="card p-3">
-
+<?= Csrf::inputField(); ?>
     <div class="row g-3">
 
       <div class="col-md-4">
