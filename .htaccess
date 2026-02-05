@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Базовый путь — /crm
+RewriteBase /crm/
+
+# 1. Если файл или папка существуют — отдаём напрямую
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2. Статика из /public
+RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+
+# 3. Всё остальное — в index.php
+RewriteRule ^ index.php [L]
+
+# Всё остальное — в index.php
+RewriteRule ^ index.php [L]
